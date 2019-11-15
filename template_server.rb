@@ -63,7 +63,7 @@ when 'issues'
   if @payload['action'] === 'opened'
     handle_issue_opened_event(@payload)
   end
-  end
+end
 
 
   helpers do
