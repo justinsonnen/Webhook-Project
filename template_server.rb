@@ -73,7 +73,7 @@ class GHAapp < Sinatra::Application
     # # # # # # # # # # # # # # # # #
     
   def handle_issue_opened_event(payload)
-    logger.debug 'An issue was opened!'
+    logger.debug payload
   end
 
     # Saves the raw payload and converts the payload to JSON format
