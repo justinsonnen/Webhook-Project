@@ -41,16 +41,22 @@ class GHAapp < Sinatra::Application
 
   post '/event_handler' do
 
-    case request.env['HTTP_X_GITHUB_EVENT']
-    when 'issues'
-      if @payload['action'] === 'opened'
-        handle_issue_opened_event(@payload)
-      end
-    end
+#    case request.env['HTTP_X_GITHUB_EVENT']
+#    when 'issues'
+#     if @payload['action'] === 'opened'
+#        handle_issue_opened_event(@payload)
+#      end
+#    end
+#
+#    200 # success status
+#  end
 
+  
+  # TEST
+    # see if we can print the wildcard 
+    puts request.env['HTTP_X_GITHUB_EVENT']
     200 # success status
   end
-
 
   helpers do
 
