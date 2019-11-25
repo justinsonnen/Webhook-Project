@@ -54,7 +54,7 @@ class GHAapp < Sinatra::Application
   
   # TEST
     # see if we can print the wildcard 
-    logger.debug "Whats up Sucka---- received event #{request.env['HTTP_X_GITHUB_EVENT']}"
+    "Whats up Sucka---- received event #{request.env['HTTP_X_GITHUB_EVENT']}"
     200 # success status
   end
 
