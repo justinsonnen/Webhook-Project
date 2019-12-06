@@ -56,6 +56,9 @@ class GHAapp < Sinatra::Application
     # see if we can print the wildcard 
     if (request.env['HTTP_X_GITHUB_EVENT'].nil?) == false
     logger.info "Sprint 2 - Wildcard Validation ---- received event #{request.env['HTTP_X_GITHUB_EVENT']}"
+      open('myfile.out', 'a') { |f|
+       f.puts "Hello, world."
+      }
     end
     200 # success status
   end
