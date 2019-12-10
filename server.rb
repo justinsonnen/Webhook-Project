@@ -60,6 +60,11 @@ class GHAapp < Sinatra::Application
       open('myfile.out', 'a') { |f|
        f.puts "An issue has been created."
       }
+      when 'label'
+      open('myfile.out', 'a') { |f|
+       f.puts "A label has been created."
+      }
+      
       when 'commit_comment'
       open('myfile.out', 'a') { |f|
        f.puts "A commit comment has been detected"
