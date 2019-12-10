@@ -56,14 +56,14 @@ class GHAapp < Sinatra::Application
   # TEST
     # see if we can print the wildcard 
     case request.env['HTTP_X_GITHUB_EVENT']
-      when 'label'
+      when 'issue_comment'
       open('myfile.out', 'a') { |f|
-       f.puts "An label has been created."
+       f.puts "A comment has been created."
       }
-   #  when 'label'
-   #   open('myfile.out', 'a') { |f|
-   #   f.puts "A label has been created."
-   #   }
+     when 'issues'
+      open('myfile.out', 'a') { |f|
+      f.puts "An issue has been created."
+      }
       
       when 'commit_comment'
       open('myfile.out', 'a') { |f|
