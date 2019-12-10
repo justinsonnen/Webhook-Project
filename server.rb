@@ -54,6 +54,17 @@ class GHAapp < Sinatra::Application
   
   # TEST
     # see if we can print the wildcard 
+    case request.env['HTTP_X_GITHUB_EVENT']
+      when 'issues'
+      open('myfile.out', 'a') { |f|
+       f.puts "An issue has been created."
+      }
+      when 'commit_comment'
+      open('myfile.out', 'a') { |f|
+       f.puts "A commit comment has been detected"
+      } 
+  end  
+      
     if (request.env['HTTP_X_GITHUB_EVENT'].nil?) == false
     logger.info "Sprint 2 - Wildcard Validation ---- received event #{request.env['HTTP_X_GITHUB_EVENT']}"
       open('myfile.out', 'a') { |f|
