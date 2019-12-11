@@ -48,13 +48,16 @@ class GHAapp < Sinatra::Application
     open('myfile.out', 'a') { |f|
       f.puts "An issue has been created."
       }
-      end
     when 'label'
      if @payload['action'] === 'deleted'
       open('myfile.out', 'a') { |f|
       f.puts "A label has been deleted."
       }
-     end
+     when 'label'
+     if @payload['action'] === 'created'
+      open('myfile.out', 'a') { |f|
+      f.puts "A label has been deleted."
+      }   
     end
 #
     200 # success status
