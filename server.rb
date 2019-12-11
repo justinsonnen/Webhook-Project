@@ -49,6 +49,7 @@ class GHAapp < Sinatra::Application
        
         file.puts "An issue has been created."
         file.close
+     end
     end
 #
     200 # success status
