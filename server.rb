@@ -43,13 +43,34 @@ class GHAapp < Sinatra::Application
 
     case request.env['HTTP_X_GITHUB_EVENT']
     when 'issues'
-     file = File.open('myfile.out', 'a')
      if @payload['action'] === 'opened'
         handle_issue_opened_event(@payload)
-       
+        file = File.open('myfile.out', 'a')
         file.puts "An issue has been created."
         file.close
-     end
+        end
+      
+    when 'issues'
+     if @payload['action'] === 'deleted'
+        handle_issue_opened_event(@payload)
+        file = File.open('myfile.out', 'a')
+        file.puts "An issue has been deleted."
+        file.close
+        end
+      
+    when 'label'
+      if @payload['action'] === 'deleted'
+        file = File.open('myfile.out', 'a')
+        file.puts "A label has been deleted."
+        file.close
+        end
+      
+     when 'label'
+      if @payload['action'] === 'created' 
+        file = File.open('myfile.out', 'a')
+        file.puts "A label has been created."
+        file.close
+        end    
     end
 #
     200 # success status
