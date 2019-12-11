@@ -41,44 +41,47 @@ class GHAapp < Sinatra::Application
 
   post '/event_handler' do
 
-#    case request.env['HTTP_X_GITHUB_EVENT']
-#    when 'issues'
-#     if @payload['action'] === 'opened'
-#        handle_issue_opened_event(@payload)
-#      end
-#    end
+    case request.env['HTTP_X_GITHUB_EVENT']
+    when 'issues'
+     if @payload['action'] === 'opened'
+        handle_issue_opened_event(@payload)
+    open('myfile.out', 'a') { |f|
+      f.puts "An issue has been created."
+      }
+      end
+    end
 #
-#    200 # success status
+    200 # success status
 #  commit test comment    
-#  end
+  end
 
   
   # TEST
     # see if we can print the wildcard 
-    case request.env['HTTP_X_GITHUB_EVENT']
-      when 'issue_comment'
-      open('myfile.out', 'a') { |f|
-       f.puts "A comment has been created."
-      }
-     when 'issues'
-      open('myfile.out', 'a') { |f|
-      f.puts "An issue has been created."
-      }
+#    case request.env['HTTP_X_GITHUB_EVENT']
+#      when 'issue_comment'
+#      open('myfile.out', 'a') { |f|
+#       f.puts "A comment has been created."
+#      }
+#     when 'issues'
+#      open('myfile.out', 'a') { |f|
+#      f.puts "An issue has been created."
+#      }
+#      
+#      when 'commit_comment'
+#      open('myfile.out', 'a') { |f|
+#       f.puts "A commit comment has been detected"
+#      } 
+#  end  
       
-      when 'commit_comment'
-      open('myfile.out', 'a') { |f|
-       f.puts "A commit comment has been detected"
-      } 
-  end  
-      
-    if (request.env['HTTP_X_GITHUB_EVENT'].nil?) == false
-    logger.info "Sprint 2 - Wildcard Validation ---- received event #{request.env['HTTP_X_GITHUB_EVENT']}"
-      open('myfile.out', 'a') { |f|
-       f.puts "Hello, world."
-      }
-    end
-    200 # success status
-  end
+#    if (request.env['HTTP_X_GITHUB_EVENT'].nil?) == false
+#    logger.info "Sprint 2 - Wildcard Validation ---- received event #{request.env['HTTP_X_GITHUB_EVENT']}"
+#      open('myfile.out', 'a') { |f|
+#       f.puts "Hello, world."
+#      }
+#    end
+#    200 # success status
+#  end
 
   helpers do
 
