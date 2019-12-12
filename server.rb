@@ -68,7 +68,7 @@ class GHAapp < Sinatra::Application
     end
 #
     200 # success status
-#  commit test comment.  
+#  commit test comment.  test
   end
 
   
