@@ -55,6 +55,16 @@ class GHAapp < Sinatra::Application
         file.puts "An issue has been created."
         file.close
         end 
+      if @payload['action'] === 'labeled' 
+        file = File.open('myfile.out', 'a')
+        file.puts "A label has been created."
+        file.close
+        end 
+      if @payload['action'] === 'unlabeled'
+        file = File.open('myfile.out', 'a')
+        file.puts "A label has been deleted."
+        file.close
+        end
     end
 #
     200 # success status
