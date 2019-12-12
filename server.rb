@@ -66,29 +66,10 @@ class GHAapp < Sinatra::Application
         file.close
         end
     end
-#
     200 # success status
-#  commit test comment.  test
   end
 
-  
-  # TEST
-    # see if we can print the wildcard 
-#    case request.env['HTTP_X_GITHUB_EVENT']
-#      when 'issue_comment'
-#      open('myfile.out', 'a') { |f|
-#       f.puts "A comment has been created."
-#      }
-#     when 'issues'
-#      open('myfile.out', 'a') { |f|
-#      f.puts "An issue has been created."
-#      }
-#      
-#      when 'commit_comment'
-#      open('myfile.out', 'a') { |f|
-#       f.puts "A commit comment has been detected"
-#      } 
-#  end  
+
       
 #    if (request.env['HTTP_X_GITHUB_EVENT'].nil?) == false
 #    logger.info "Sprint 2 - Wildcard Validation ---- received event #{request.env['HTTP_X_GITHUB_EVENT']}"
@@ -105,8 +86,8 @@ class GHAapp < Sinatra::Application
     def handle_issue_opened_event(payload)
       repo = payload['repository']['full_name']
       issue_number = payload['issue']['number']
-      @installation_client.add_labels_to_an_issue(repo, issue_number, ['needs-response'])
-      @installation_client.add_comment(repo, issue_number, "Auto comment feature enabled")
+      @installation_client.add_labels_to_an_issue(repo, issue_number, ['Demo_Auto_label'])
+      @installation_client.add_comment(repo, issue_number, "Sprint 3 - Auto comment feature enabled")
     end
 
     # Saves the raw payload and converts the payload to JSON format
