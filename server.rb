@@ -49,7 +49,12 @@ class GHAapp < Sinatra::Application
         file.puts "An issue has been closed."
         file.close
         end
-   
+     if @payload['action'] === 'opened'
+        handle_issue_opened_event(@payload)
+        file = File.open('myfile.out', 'a')
+        file.puts "An issue has been created."
+        file.close
+        end 
     end
 #
     200 # success status
